@@ -1,0 +1,16 @@
+/////////// HEADER ////////////
+<header th:fragment="header">
+  <h1>Classic Models - E-Commerce</h1>
+  <nav>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/about}">About</a>
+    <a th:href="@{/cart}">Shopping Cart</a>
+  </nav>
+  <hr/>
+</header>
+
+/////////// FOOTER ////////////
+<footer th:fragment="footer">
+  <p>Social Media Links... © 2021</p>
+  <p th:text="${#dates.createNow()}"></p>
+</footer>

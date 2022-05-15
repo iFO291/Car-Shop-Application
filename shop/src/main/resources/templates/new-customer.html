@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>:)</title>
+</head>
+<body th:align="center">
+<div>
+    <div th:replace="fragments/global :: header"></div>
+    <div>
+        Welcome!
+        <hr/>
+    </div>
+
+    <form action="#" th:action="@{/save}" th:object="${customer}" method="post">
+        <table th:border="1" th:cellpadding="10" th:align="center">
+            <caption>Customer Details</caption>
+<!--            <tr>-->
+<!--                <td hidden="hidden">Customer Number</td>-->
+<!--                <td><input type="text" th:field="*{customernumber}" hidden="hidden"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td hidden="hidden">Customer Name</td>-->
+<!--                <td><input type="text" th:field="*{customername}" hidden="hidden"></td>-->
+<!--            </tr>-->
+            <tr th:align="center">
+                <td><input type="text" th:field="*{contactfirstname}" class="form-control" placeholder="First name" autofocus="true"></td>
+                <td th:if="${#fields.hasErrors('contactfirstname')}" th:errors="*{contactfirstname}">></td>
+            </tr>
+            <tr th:align="center">
+                <td><input type="text" th:field="*{contactlastname}" class="form-control" placeholder="Last name"></td>
+                <td th:if="${#fields.hasErrors('contactlastname')}"  th:errors="*{contactlastname}">></td>
+            </tr>
+            <tr th:align="center">
+                <td><input type="text" th:field="*{phone}" class="form-control" placeholder="Phone"></td>
+            </tr>
+            <tr th:align="center">
+                <td><input type="text" th:field="*{addressline1}" class="form-control" placeholder="Address ..."></td>
+                <td th:if="${#fields.hasErrors('addressline1')}" th:errors="*{addressline1}">></td>
+            </tr>
+            <tr th:align="center">
+                <td><input type="text" th:field="*{addressline2}" class="form-control" placeholder="...address"></td>
+            </tr>
+            <tr th:align="center">
+                <td><input type="text" th:field="*{city}" class="form-control" placeholder="City"></td>
+                <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">></td>
+            </tr>
+<!--            <tr>-->
+<!--                <td hidden="hidden">State</td>-->
+<!--                <td><input type="text" th:field="*{state}" hidden="hidden"></td>-->
+<!--            </tr>-->
+            <tr th:align="center">
+                <td><input type="text" th:field="*{postalcode}" class="form-control" placeholder="Postal code"></td>
+                <td th:if="${#fields.hasErrors('postalcode')}" th:errors="*{postalcode}">></td>
+            </tr>
+<!--            <tr>-->
+<!--                <td hidden="hidden">Country</td>-->
+<!--                <td><input type="text" th:field="*{country}" hidden="hidden"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>Employee Nr</td>-->
+<!--                <td><input type="text" th:field="*{salesemployeenumber}"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td hidden="hidden">CreditLimit</td>-->
+<!--                <td><input type="text" th:field="*{creditlimit}" hidden="hidden"></td>-->
+<!--            </tr>-->
+            <tr th:align="center">
+                <td colspan="2">
+                    <button type="submit">Save and continue</button>
+                    <button type="button" th:href="@{/login}">Or login</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div th:replace="fragments/global :: footer"></div>
+</body>
+</html>

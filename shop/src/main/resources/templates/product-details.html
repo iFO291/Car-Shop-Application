@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:)</title>
+</head>
+<body th:align="center">
+
+<div th:replace="fragments/global :: header"></div>
+<div align="center">
+    <br/>
+
+    <form action="#" th:action="@{'/add/' + ${product.productcode}}" th:object="${product}" method="post">
+        <table border="1" cellpadding="10">
+            <caption>Product Details</caption>
+            <tr>
+                <td>
+                    <img th:src="@{${'/img/cars/' + product.productcode + '.png' }}" width="200px">
+                </td>
+                <td th:text="*{productdescription}"></td>
+            </tr>
+            <tr>
+                <th>Product Code</th>
+                <td th:text="*{productcode}"></td>
+            </tr>
+            <tr>
+                <th>Product Name</th>
+                <td th:text="*{productname}"></td>
+            </tr>
+            <tr>
+                <th>Product MSRP</th>
+                <td th:text="*{msrp}">
+                </td>
+            </tr>
+            <tr>
+                <th>Product Line</th>
+                <td th:text="*{productline}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" th:align="center">
+                    <button type="submit">This I want!</button>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+<div th:replace="fragments/global :: footer"></div>
+</body>
+</html>

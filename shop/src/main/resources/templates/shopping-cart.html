@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:)</title>
+  </head>
+  <body th:align="center">
+    
+  <div th:replace="fragments/global :: header"></div>
+
+  <table th:align="center" border="1" cellpadding="3">
+    <thead>
+      <caption>UnderGround Cart: <p th:text="${cart.size()}"></p></caption>
+      <tr>
+        <th>Img</th>
+        <th>Products</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>+/-</th>
+      </tr>
+    </thead>
+    <tr th:each="prod : ${cart}">
+      <td><img th:src="@{${'/img/cars/' + prod.productcode + '.png' }}" width="50px"></td>
+      <td th:text="${prod.productname}"></td>
+      <td th:text="${prod.msrp}"></td>
+      <td th:text="${prod.quantityincart}"></td>
+      <td>
+        <button type="button"><a th:href="@{'/plus/' + ${prod.productcode}}">+</a></button>
+    <!--    <p th:value="${#lists.size(cart.productcode)}"></p>-->
+        <button type="button"><a th:href="@{'/minus/' + ${prod.productcode}}">-</a></button>
+      </td>
+    </tr>
+    <tr th:border="1" th:cellpadding="0">
+      <th>Total: </th>
+      <td>...</td>
+      <td>...</td>
+      <th>...</th>
+      <td th:hidden="hidden"> <p th:text="${cart.size()}">BROKEN</p></td>
+      <td><button type="submit"><a th:href="@{'/new/'}">Continue</a></button></td>
+  <!--    <td th:text="${cart.msrp}"></td>-->
+    </tr>
+  </table>
+
+  <div th:replace="fragments/global :: footer"></div>
+    
+  </body>
+</html>

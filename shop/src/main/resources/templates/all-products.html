@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:)</title>
+</head>
+<body th:align="center">
+<div th:replace="fragments/global :: header"></div>
+
+
+<table>
+  <thead>
+  <tr>
+    <th>IMG</th>
+    <th>Vendor</th>
+    <th>Name</th>
+    <th>Line</th>
+    <th>Price</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="prod : ${products}">
+    <td><img th:src="@{${'/img/cars/' + prod.productcode + '.png' }}" width="50px"></td>
+    <td th:text="${prod.productvendor}">Vendor</td>
+    <td th:text="${prod.productname}">Name</td>
+    <td th:text="${prod.productline}">Line</td>
+    <td th:text="${prod.msrp}">Price</td>
+    <td>
+      <form action="#" th:action="@{'/add/' + ${prod.productcode}}"  method="post">
+        <button type="submit">This I Want!</button>
+      </form>
+      <button type="button"><a th:href="@{'/details/' + ${prod.productcode}}">More...</a></button>
+
+<!--      <form style="display: inline" action="#" th:action="@{/WillRedirectToCart}" method="post">-->
+
+<!--        <input type="text" th:value="${product.productcode}" name="productcode" hidden="hidden"/>-->
+<!--        <input type="text" th:value="${product.productname}" name="productname" hidden="hidden"/>-->
+<!--        <input type="number" th:value="${product.msrp}" name="productmsrp" hidden="hidden" />-->
+<!--        <button type="submit">Add to Cart</button>-->
+
+<!--        &nbsp;&nbsp;&nbsp;-->
+<!--        <a th:href="@{'/details/' + ${product.productcode}}">Product Details</a>-->
+<!--      </form>-->
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div th:replace="fragments/global :: footer"></div>
+
+</body>
+</html>

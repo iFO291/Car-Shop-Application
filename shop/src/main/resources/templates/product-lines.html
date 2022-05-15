@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:)</title>
+</head>
+<body th:align="center">
+<div th:replace="fragments/global :: header"></div>
+<!--            &nbsp;&nbsp;&nbsp;-->
+<!--    <form action="#" th:action="@{/classics}" th:object="${products}" method="post">-->
+<!--        <button type="submit">Classic Cars</button>-->
+<!--        &lt;!&ndash;            &nbsp;&nbsp;&nbsp;&ndash;&gt;-->
+<!--    </form>-->
+<!--    <form action="#" th:action="@{/bikes}" th:object="${products}" method="post">-->
+<!--        <button type="submit">Bikes</button>-->
+<!--        &lt;!&ndash;            &nbsp;&nbsp;&nbsp;&ndash;&gt;-->
+<!--    </form>-->
+<!--    <form action="#" th:action="@{/planes}" th:object="${products}" method="post">-->
+<!--        <button type="submit">Planes</button>-->
+<!--        &lt;!&ndash;            &nbsp;&nbsp;&nbsp;&ndash;&gt;-->
+<!--    </form>-->
+<!--    <form action="#" th:action="@{/ships}" th:object="${products}" method="post">-->
+<!--        <button type="submit">Ships</button>-->
+<!--        &lt;!&ndash;            &nbsp;&nbsp;&nbsp;&ndash;&gt;-->
+<!--    </form>-->
+<!--    <form action="#" th:action="@{/trains}" th:object="${products}" method="post">-->
+<!--        <button type="submit">Trains</button>-->
+<!--        &lt;!&ndash;            &nbsp;&nbsp;&nbsp;&ndash;&gt;-->
+<!--    </form>-->
+<!--    <form action="#" th:action="@{/trucksandbusses}" th:object="${products}" method="post">-->
+<!--        <button type="submit">Trucks and Busses</button>-->
+<!--        &lt;!&ndash;            &nbsp;&nbsp;&nbsp;&ndash;&gt;-->
+<!--    </form>-->
+<!--    <form action="#" th:action="@{/vintage}" th:object="${products}" method="post">-->
+<!--        <button type="submit">Vintage Cars</button>-->
+<!--        &lt;!&ndash;            &nbsp;&nbsp;&nbsp;&ndash;&gt;-->
+<!--    </form>-->
+
+
+<br/>
+<div th:align="center">
+<table th:border="1" th:cellpadding="5" th:each="prodline : ${productlines}">
+    <thead>
+    <tr>
+        <th th:text="${prodline.productline}">Line Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td th:text="${prodline.textdescription}">Name</td>
+    </tr>
+    </tbody>
+    <tfoot th:align="center">
+    <tr>
+        <td>
+        <button type="button"><a th:href="@{'/prodinline/' + ${prodline.productline}}">Show me products !</a></button>
+        </td>
+    </tr>
+
+    </tfoot>
+
+</table>
+<br/>
+</div>
+<div th:replace="fragments/global :: footer"></div>
+</body>
+</html>
